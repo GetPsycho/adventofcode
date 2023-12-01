@@ -67,7 +67,6 @@
 
 
 
-
 # def find_max_calories(input_text):
 #     # Split the input into lists of Calories for each Elf
 #     elves_calories = [list(map(int, group.split())) for group in input_text.strip().split('\n\n')]
