@@ -32,26 +32,53 @@ import os
 
 # Considérez l'ensemble de votre document d'étalonnage. Quelle est la somme de toutes les valeurs d'étalonnage ?
 
+##############################################Dayone - part#1 ############################################################
+# f = open("C:\\Users\\erifontaine\\repopo\\adventofcode\\2023\\input.txt", "r").read().strip()
+# countGlobal = 0
+# for calibElement in f.split('\n'):
+#     digitList = []
+#     countPerCharElem = 0
+#     for charElem in calibElement:
+#         if charElem.isdigit():
+#             digitList.append(int(charElem))
+#     countPerCharElem = str(digitList[0]) + str(digitList[len(digitList)-1])
+#     countGlobal += int(countPerCharElem)
+# print("resultat: "+ str(countGlobal))
+
+
+
+##############################################Dayone - part#2 ############################################################
+calibrationExampleList = (
+"two1nine",
+"eightwothree",
+"abcone2threexyz",
+"xtwone3four",
+"4nineeightseven2",
+"zoneight234",
+"7pqrstsixteen"
+)
 
 f = open("C:\\Users\\erifontaine\\repopo\\adventofcode\\2023\\input.txt", "r").read().strip()
-
+letters = ("one","two","three","four","five","six","seven","eight","nine")
 countGlobal = 0
-# for calibElement in calibrationListe:
 for calibElement in f.split('\n'):
+# for calibElement in calibrationExampleList:
+    print(calibElement)
     digitList = []
-    countPerCharElem = 0
-    for charElem in calibElement:
+
+    for indice, charElem in enumerate(calibElement):
         if charElem.isdigit():
             digitList.append(int(charElem))
-    countPerCharElem = str(digitList[0]) + str(digitList[len(digitList)-1])
-    countGlobal += int(countPerCharElem)
-print("resultat: "+ str(countGlobal))
+        else:
+            for letterElem in letters:
+                if(letterElem == calibElement[indice:indice+len(letterElem)]):
+                    digitList.append(letters.index(letterElem)+1)
+                    break
 
-print(os.getcwd())
-
-
-
-
+    print(digitList)
+    countGlobal += int(str(digitList[0])+str(digitList[-1]))
+    print("valeur courante:"+ str(int(str(digitList[0])+str(digitList[-1]))))
+    print("countGlobal: "+str(countGlobal))
 
 
 
