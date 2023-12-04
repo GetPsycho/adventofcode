@@ -11,6 +11,7 @@
 import re
 f = open(r"C:\Users\erifontaine\repopo\adventofcode\2023\input_daytwo.txt", "r").read().strip()
 
+
 ##############################################Daytwo - part#1 ############################################################
 # stringExample = "Game 1: 1 red, 3 blue, 11 green; 1 blue, 5 red; 3 blue, 5 green, 13 red; 6 red, 1 blue, 4 green; 16 red, 12 green"
 # globalCount = 0
