@@ -18,6 +18,12 @@ for indiceLine, elemLine in enumerate(f.split("\n")):
 
 print(array2Dempty)
 
+for arIndiceLine, arLine in enumerate(array2Dempty):
+    for arIndiceChar, arCharELem in enumerate(elemLine):
+        if(arCharELem.isdigit()):
+            candidateNb = arCharELem
+            while
+
 
 ##############################################Daytwo - part#1 ############################################################
 # stringExample = "Game 1: 1 red, 3 blue, 11 green; 1 blue, 5 red; 3 blue, 5 green, 13 red; 6 red, 1 blue, 4 green; 16 red, 12 green"
