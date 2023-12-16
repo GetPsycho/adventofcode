@@ -39,11 +39,7 @@ for indice_line, data_line in enumerate(f.split("\n")):
             matching_numbers = matching_numbers+1
 
     #card point value calculation
-    # 1 = 1
-    # 2 = 2
-    # 3 = 4
-    # 4 = 8
-    # 5 = 16
+    # 1 = 1, 2 = 2 ,3 = 4, 4 = 8, 5 = 16, etc...
     card_value = 1
     if(matching_numbers != 0):
         card_value = 2 ** (matching_numbers-1)
