@@ -53,8 +53,20 @@ globalCount = 0
 
 ################################################### PART 2 ##########################################################################
 
+matching_numbers = 0
 deck_winning_cards = {}
 deck_owned_cards = {}
+
+def search_matched_pairs(card_id):
+    global matching_numbers
+    for owned_number in deck_owned_cards[str(card_id)]:
+        if owned_number in deck_winning_cards[str(card_id)]:
+            matching_numbers = matching_numbers+1
+            print('card_id a browser: '+ str(owned_number))
+            print('matching_numbers: '+ str(matching_numbers))
+            search_matched_pairs(owned_number)
+
+
 #we browse, line by line
 for indice_line, data_line in enumerate(f.split("\n")):
 
@@ -84,12 +96,14 @@ print('deck_winning_cards: '+ str(deck_winning_cards))
 print('deck_owned_cards: '+ str(deck_owned_cards))
 
 
+for i in range(len(deck_winning_cards)):
+    print('loop num: '+ str(i))
+    # we check if there is winning numbers
+    search_matched_pairs(i+1)
 
-    #we check if there is winning numbers
-    # matching_numbers = 0
-    # for owned_number in number_owned_list_split:
-    #     if owned_number in number_winning_list_split:
-    #         matching_numbers = matching_numbers+1
+print('matching_numbers: '+ str(matching_numbers))
+
+
 
     #card point value calculation
     # 1 = 1, 2 = 2 ,3 = 4, 4 = 8, 5 = 16, etc...
