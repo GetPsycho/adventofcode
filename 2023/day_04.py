@@ -59,12 +59,22 @@ deck_owned_cards = {}
 
 def search_matched_pairs(card_id):
     global matching_numbers
+    matching_numbers = matching_numbers+1
+    count_of_valid_number = 0
     for owned_number in deck_owned_cards[str(card_id)]:
         if owned_number in deck_winning_cards[str(card_id)]:
-            matching_numbers = matching_numbers+1
-            print('card_id a browser: '+ str(owned_number))
-            print('matching_numbers: '+ str(matching_numbers))
-            search_matched_pairs(owned_number)
+            count_of_valid_number = count_of_valid_number + 1
+
+    
+    print("count_of_valid_number: "+ str(count_of_valid_number))
+    if(count_of_valid_number != 0):
+        for i in range(int(card_id+1), int(card_id+count_of_valid_number+1)):
+            # print("i: "+ str(i))
+            search_matched_pairs(i)
+            
+    # print('card_id a browser: '+ str(owned_number))
+    # print('matching_numbers: '+ str(matching_numbers))
+    # search_matched_pairs(owned_number)
 
 
 #we browse, line by line
