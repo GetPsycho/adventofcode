@@ -20,7 +20,7 @@ def return_value_in_dictionary(kline,kcol):
     return gear_dictionary[constitute_key_for_dictionary(kline,kcol)]
 
 work_folder = os.getcwd()
-input_relative_path = "2023/input_daythree.txt"
+input_relative_path = "2023/input_day_03.txt"
 input_absolute_path = os.path.join(work_folder,input_relative_path)
 f = open(input_absolute_path, "r").read().strip()
 #determiner le nb de lignes et colonnes du tableau à remplir
@@ -136,7 +136,7 @@ print("globalCount: "+ str(globalCount))
 
 # print(array2D)
 # PART ONE #############################################################################################
-# #browse to find valid parameters
+#browse to find valid parameters
 # for arIndiceLine, arLine in enumerate(array2D):
 #     print("arLine: "+ str(arLine))
 #     for arIndiceCol, arCharELem in enumerate(arLine):

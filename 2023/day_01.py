@@ -34,6 +34,13 @@ import os
 
 ##############################################Dayone - part#1 ############################################################
 # f = open("C:\\Users\\erifontaine\\repopo\\adventofcode\\2023\\input.txt", "r").read().strip()
+
+#import + read the file
+work_folder = os.getcwd()
+input_relative_path = "2023/input_day_01.txt"
+input_absolute_path = os.path.join(work_folder,input_relative_path)
+f = open(input_absolute_path, "r").read().strip()
+
 # countGlobal = 0
 # for calibElement in f.split('\n'):
 #     digitList = []
@@ -48,37 +55,37 @@ import os
 
 
 ##############################################Dayone - part#2 ############################################################
-calibrationExampleList = (
-"two1nine",
-"eightwothree",
-"abcone2threexyz",
-"xtwone3four",
-"4nineeightseven2",
-"zoneight234",
-"7pqrstsixteen"
-)
+# calibrationExampleList = (
+# "two1nine",
+# "eightwothree",
+# "abcone2threexyz",
+# "xtwone3four",
+# "4nineeightseven2",
+# "zoneight234",
+# "7pqrstsixteen"
+# )
 
-f = open("C:\\Users\\erifontaine\\repopo\\adventofcode\\2023\\input.txt", "r").read().strip()
-letters = ("one","two","three","four","five","six","seven","eight","nine")
-countGlobal = 0
-for calibElement in f.split('\n'):
-# for calibElement in calibrationExampleList:
-    print(calibElement)
-    digitList = []
+# f = open("C:\\Users\\erifontaine\\repopo\\adventofcode\\2023\\input.txt", "r").read().strip()
+# letters = ("one","two","three","four","five","six","seven","eight","nine")
+# countGlobal = 0
+# for calibElement in f.split('\n'):
+# # for calibElement in calibrationExampleList:
+#     print(calibElement)
+#     digitList = []
 
-    for indice, charElem in enumerate(calibElement):
-        if charElem.isdigit():
-            digitList.append(int(charElem))
-        else:
-            for letterElem in letters:
-                if(letterElem == calibElement[indice:indice+len(letterElem)]):
-                    digitList.append(letters.index(letterElem)+1)
-                    break
+#     for indice, charElem in enumerate(calibElement):
+#         if charElem.isdigit():
+#             digitList.append(int(charElem))
+#         else:
+#             for letterElem in letters:
+#                 if(letterElem == calibElement[indice:indice+len(letterElem)]):
+#                     digitList.append(letters.index(letterElem)+1)
+#                     break
 
-    print(digitList)
-    countGlobal += int(str(digitList[0])+str(digitList[-1]))
-    print("valeur courante:"+ str(int(str(digitList[0])+str(digitList[-1]))))
-    print("countGlobal: "+str(countGlobal))
+#     print(digitList)
+#     countGlobal += int(str(digitList[0])+str(digitList[-1]))
+#     print("valeur courante:"+ str(int(str(digitList[0])+str(digitList[-1]))))
+#     print("countGlobal: "+str(countGlobal))
 
 
 

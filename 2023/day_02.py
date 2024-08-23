@@ -8,8 +8,14 @@
 #cubes verts: 13
 #cubes bleus: 14
 
-import re
-f = open(r"C:\Users\erifontaine\repopo\adventofcode\2023\input_daytwo.txt", "r").read().strip()
+import re, os
+# f = open(r"C:\Users\erifontaine\repopo\adventofcode\2023\input_daytwo.txt", "r").read().strip()
+
+#import + read the file
+work_folder = os.getcwd()
+input_relative_path = "2023/input_day_02.txt"
+input_absolute_path = os.path.join(work_folder,input_relative_path)
+f = open(input_absolute_path, "r").read().strip()
 
 
 ##############################################Daytwo - part#1 ############################################################
