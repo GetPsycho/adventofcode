@@ -3,18 +3,40 @@ import config
 input_file = 'input_day_05.txt'
 f = open(config.input_absolute_path+input_file, "r").read().strip()
 
-#split line by line
+current_list_id = -1
+lists_of_maps = []
+
+# initializations of lists
+for i in range(7):
+    lists_of_maps.append([])
+
+#split file line by line
 for line_number, line in enumerate(f.split("\n")):
-    
+    # print('line number:',line_number,' | line content: ', line)
+
     #put the seeds into a data structure
-    # print('line_number: '+ str(line_number)+ ' line:'+ str(line))
     if line.startswith('seeds'):
-        split_seed_id = line.split(':')[1]
-        print('seeds id: '+ str(split_seed_id))
-    # for seed_id in split_seed_id.split():
-    #     print('seed_id: '+ seed_id)
+        string_seed_id = line.split(':')[1]
+        continue
+    #put the maps into list of lists
     if line.endswith('map:'):
-        
+        current_list_id = current_list_id+1
+        # print("nouvelle map")
+        continue
+    if line.strip() == "":
+        continue
+    else:
+        dico = {"dest":line.split(" ")[0], "source":line.split(" ")[1], "length":line.split(" ")[2]}
+        lists_of_maps[current_list_id].append(dico)
+
+# print("split_seed_id: ",string_seed_id)
+
+
+# now for each seed id we go from map to map to find the location
+for seed_number, seed_id in enumerate(string_seed_id.strip().split(" ")):
+    print("seed id: ", line_number)
+
+
 
 
 
