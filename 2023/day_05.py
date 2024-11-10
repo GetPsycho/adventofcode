@@ -14,7 +14,9 @@ for line_number, line in enumerate(f.split("\n")):
     # for seed_id in split_seed_id.split():
     #     print('seed_id: '+ seed_id)
     if line.endswith('map:'):
+        print('into new map')
         
+        current_map_name = 
 
 
 
