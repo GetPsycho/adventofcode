@@ -20,11 +20,6 @@ for line_number, line in enumerate(f.split("\n")):
         continue
     #put the maps into list of lists
     if line.endswith('map:'):
-<<<<<<< HEAD
-        print('into new map')
-        
-        current_map_name = 
-=======
         current_list_id = current_list_id+1
         # print("nouvelle map")
         continue
@@ -61,10 +56,6 @@ print("location_list: ",location_list)
 print("lowest location:", min(location_list))
 
 
-
-
-
->>>>>>> c4bda4d49b07251fff7608c13497bf8167a55ef5
 
 
 
