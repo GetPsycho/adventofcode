@@ -32,7 +32,6 @@ for line_number, line in enumerate(f.split("\n")):
 # print("split_seed_id: ",string_seed_id)
 
 location_list = []
-
 # now for each seed id we go from map to map to find the location
 for seed_number, seed_id in enumerate(string_seed_id.strip().split(" ")):
     # print("seed id: ", line_number)
