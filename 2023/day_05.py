@@ -11,7 +11,7 @@ for i in range(7):
     lists_of_maps.append([])
 
 #split file line by line
-for line_number, line in enumerate(f.split("\n")):
+for line_number, line in enumerate(filter.split("\n")):
     # print('line number:',line_number,' | line content: ', line)
 
     #put the seeds into a data structure
