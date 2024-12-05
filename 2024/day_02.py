@@ -3,6 +3,9 @@ import config
 
 input_file = 'input_day_02.txt'
 selected_bad_reports = ""
+go_over_limit_for_bad_cases = 0
+flat_for_bad_cases = 0
+variation_issue_for_bad_cases = 0
 
 with open(config.input_absolute_path+input_file, 'r') as f:
     puzzle_input = f.read()
@@ -42,8 +45,9 @@ def part1(puzzle_input):
 
 def safe_report_selector(reports_input,filter_bad_reports):
     safe_report_quantity = 0
-    global selected_bad_reports
+    global selected_bad_reports, go_over_limit_for_bad_cases, flat_for_bad_cases, variation_issue_for_bad_cases
     
+    print("reports_input: ", len(reports_input.split("\n")))
     for i, report in enumerate(reports_input.split("\n")):
         previous_level = 0
         current_variation = "null"
@@ -60,6 +64,13 @@ def safe_report_selector(reports_input,filter_bad_reports):
                     del report_to_filter[j-1]
                     report_filtered_string = " ".join(report_to_filter)
                     selected_bad_reports = selected_bad_reports + report_filtered_string +"\n"
+                else:
+                    if(abs(int(level)-int(previous_level))>3):
+                        go_over_limit_for_bad_cases = go_over_limit_for_bad_cases + 1
+                    elif(new_variation == "flat"):
+                        flat_for_bad_cases = flat_for_bad_cases + 1
+                    elif(current_variation != "null" and new_variation!=current_variation):
+                        variation_issue_for_bad_cases = variation_issue_for_bad_cases + 1
                 break
             else:
                 previous_level = level
@@ -78,7 +89,11 @@ def part2(puzzle_input):
     return(safe_report_quantity)
 
 
-# print('Part 1:', part1(puzzle_input))
+print('Part 1:', part1(puzzle_input))
 print('Part 2:', part2(puzzle_input))
+print("go_over_limit_for_bad_cases: ",go_over_limit_for_bad_cases)
+print("flat_for_bad_cases: ", flat_for_bad_cases)
+print("variation_issue_for_bad_cases: ", variation_issue_for_bad_cases)
+print("RAF:", go_over_limit_for_bad_cases+ flat_for_bad_cases + variation_issue_for_bad_cases)
 
 
